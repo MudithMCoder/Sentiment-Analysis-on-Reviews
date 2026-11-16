@@ -155,3 +155,17 @@ See [`Docs/Model_hyperparameters.md`](Docs/Model_hyperparameters.md) for recomme
 - The current evaluation code uses the model at the end of the fixed five-epoch training loop; it does not restore a checkpoint selected by validation loss.
 - Dataset source and licensing details are not documented in the repository.
 - No automated test suite is provided.
+
+## v0-baseline provenance
+
+The `v0-baseline` tag (commit `98c92a9`) is the frozen, unattacked model used as the "before" reference for the ML security work on the `ml-security` branch.
+
+| Item | Value |
+|---|---|
+| Artifacts | `artifacts/v0/` (`model.pt`, `vocab.json`, `config.json`, `splits.json`, `train_log.json`, `metrics.json`) |
+| Training | 5 epochs, seed 42, best validation loss 0.3451 at epoch 5, CPU |
+| Test metrics | accuracy 0.8595, precision 0.8750, recall 0.8401, F1 0.8572, ROC AUC 0.9322 (n = 7,438) |
+
+**Known provenance gap:** `artifacts/v0/config.json` records `git_commit: 2815539` with `git_dirty: true`, because the model was trained before the `src/` package was committed. The training code that produced it is the `src/` package as committed in `d38fff9` (unchanged in `98c92a9`). Later runs record a clean commit; `src/train.py` now refuses to train from a dirty tree unless `--allow-dirty` is passed.
+
+The 88.2% test accuracy shown in `Pipeline.ipynb` comes from an earlier, unseeded notebook run and is not the v0 baseline.

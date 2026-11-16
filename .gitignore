@@ -5,3 +5,6 @@ __pycache__/
 
 # Large model artifacts
 *.pt
+
+# Scratch / smoke-test training runs
+artifacts/scratch/

@@ -1,0 +1,15 @@
+# Pinned from the project .venv (Python 3.12). Direct dependencies only.
+torch==2.12.1
+numpy==2.4.6
+pandas==3.0.3
+scikit-learn==1.9.0
+spacy==3.8.14
+en_core_web_sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl#sha256=1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85
+beautifulsoup4==4.15.0
+contractions==0.1.73
+pytest==9.2.0
+
+# Notebook (EDA / plots) only
+matplotlib==3.11.0
+seaborn==0.13.2
+wordcloud==1.9.6
